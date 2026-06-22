@@ -1,0 +1,38 @@
+---
+import type { Project } from "@data/projects";
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+  {
+    project.visual && (
+      <img
+        class="project-visual"
+        src={project.visual.src}
+        alt={project.visual.alt}
+        loading="eager"
+      />
+    )
+  }
+  <div class="project-meta">
+    <span>{project.role}</span>
+    <span>{project.period}</span>
+    <span>{project.status}</span>
+  </div>
+  <h2>
+    <a href={project.repo}>{project.title}</a>
+  </h2>
+  <p class="subtitle">{project.subtitle}</p>
+  <p>{project.summary}</p>
+  <ul class="tag-list" aria-label={`${project.title} tags`}>
+    {project.tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+  <ul class="check-list">
+    {project.highlights.map((item) => <li>{item}</li>)}
+  </ul>
+</article>

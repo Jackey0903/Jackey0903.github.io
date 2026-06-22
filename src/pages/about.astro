@@ -1,0 +1,53 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageIntro from "@components/PageIntro.astro";
+import { site } from "@data/site";
+---
+
+<BaseLayout title="About / Now" description="About Haojie Hu and current interests.">
+  <PageIntro
+    eyebrow="About / Now"
+    title="I am trying to become the kind of engineer who can ask better research questions."
+    copy="The short version: I like building tools, reading failure cases, and turning vague AI ideas into things that can be inspected."
+  />
+
+  <section class="about-grid">
+    <article class="about-panel">
+      <h2>Right now</h2>
+      <ul class="check-list">
+        <li>Studying audio-visual segmentation through motion and physical consistency.</li>
+        <li>Testing when LLM reasoning budgets help multimodal grounding.</li>
+        <li>Building agent workflows for paper understanding and poster generation.</li>
+      </ul>
+    </article>
+
+    <article class="about-panel">
+      <h2>What I am looking for</h2>
+      <p>
+        Research or engineering internships around multimodal learning, LLM
+        reasoning, AI agents, research tooling, or evaluation-heavy AI systems.
+      </p>
+    </article>
+
+    <article class="about-panel">
+      <h2>How I work</h2>
+      <ul class="check-list">
+        <li>Start with a small working loop, then inspect the failure cases.</li>
+        <li>Prefer readable pipelines over magic one-shot demos.</li>
+        <li>Write notes because half of research is remembering why a choice mattered.</li>
+      </ul>
+    </article>
+
+    <article class="about-panel contact-panel">
+      <h2>Contact</h2>
+      <p>
+        The best public entry point for now is GitHub. A public email will be
+        added once I decide which address to expose here.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={site.links.github}>GitHub</a>
+        <span class="button button-disabled">{site.links.emailLabel}</span>
+      </div>
+    </article>
+  </section>
+</BaseLayout>

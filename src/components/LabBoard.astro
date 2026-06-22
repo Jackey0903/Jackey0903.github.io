@@ -1,0 +1,29 @@
+---
+import { researchThreads } from "@data/research";
+---
+
+<aside class="lab-board" aria-label="Current AI exploration board">
+  <div class="board-strip">
+    <span>current field notes</span>
+    <span>v1</span>
+  </div>
+  <div class="signal-card signal-card-primary">
+    <span class="signal-label">identity</span>
+    <strong>AI Explorer</strong>
+    <p>research-minded, builder-shaped, still curious on purpose</p>
+  </div>
+  <div class="mini-grid">
+    {
+      researchThreads.slice(0, 3).map((thread) => (
+        <a href="/research/" class="mini-note">
+          <span>{thread.eyebrow}</span>
+          <strong>{thread.title}</strong>
+        </a>
+      ))
+    }
+  </div>
+  <div class="board-footer">
+    <span>open to research internships</span>
+    <span>multimodal systems / agents / tools</span>
+  </div>
+</aside>

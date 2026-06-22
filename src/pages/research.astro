@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageIntro from "@components/PageIntro.astro";
+import ResearchThread from "@components/ResearchThread.astro";
+import { researchThreads } from "@data/research";
+---
+
+<BaseLayout title="Research" description="Research interests and threads by Haojie Hu.">
+  <PageIntro
+    eyebrow="Research"
+    title="Questions I keep coming back to"
+    copy="My current research sits around multimodal evidence, reasoning budgets, and AI systems that can make their own intermediate decisions visible."
+  />
+
+  <section class="thread-stack">
+    {researchThreads.map((thread) => <ResearchThread thread={thread} />)}
+  </section>
+</BaseLayout>

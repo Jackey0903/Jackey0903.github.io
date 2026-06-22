@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageIntro from "@components/PageIntro.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import { projects } from "@data/projects";
+---
+
+<BaseLayout title="Projects" description="Selected research and software projects by Haojie Hu.">
+  <PageIntro
+    eyebrow="Projects"
+    title="Things I have been building"
+    copy="A mix of research code, agent workflows, and coursework systems. I like projects that make abstract ideas inspectable."
+  />
+
+  <section class="project-grid project-grid-wide">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </section>
+</BaseLayout>

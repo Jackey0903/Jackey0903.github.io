@@ -1,0 +1,22 @@
+---
+type Props = {
+  href: string;
+  title: string;
+  date: Date;
+  category: string;
+  excerpt: string;
+};
+
+const { href, title, date, category, excerpt } = Astro.props;
+const formatted = new Intl.DateTimeFormat("en", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+}).format(date);
+---
+
+<article class="note-card">
+  <p class="note-meta">{category} / {formatted}</p>
+  <h2><a href={href}>{title}</a></h2>
+  <p>{excerpt}</p>
+</article>
