@@ -38,8 +38,8 @@ export const researchThreads: ResearchThread[] = [
       "Generative tools for scientific communication often stop at a first draft, even when the real work is revision.",
     approach:
       "Build agent pipelines with explicit parsing, curation, layout, rendering, review, and repair stages.",
-    status: "Paper2Poster currently runs a PDF-to-editable-poster workflow with reviewer loops.",
+    status: "PosterMELD has released its paper, generation code, benchmark evaluation, and project page.",
     tags: ["Agents", "Posters", "Scientific workflow"],
-    link: "https://github.com/Jackey0903/paper2poster",
+    link: "https://github.com/Jackey0903/PosterMELD",
   },
 ];
