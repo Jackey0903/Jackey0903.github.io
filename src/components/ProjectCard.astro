@@ -1,38 +1,49 @@
 ---
 import type { Project } from "@data/projects";
+import { ArrowUpRight } from "@lucide/astro";
 
 type Props = {
   project: Project;
+  index?: number;
+  compact?: boolean;
 };
 
-const { project } = Astro.props;
+const { project, index = 0, compact = false } = Astro.props;
 ---
 
-<article class="project-card">
-  {
-    project.visual && (
-      <img
-        class="project-visual"
-        src={project.visual.src}
-        alt={project.visual.alt}
-        loading="eager"
-      />
-    )
-  }
-  <div class="project-meta">
-    <span>{project.role}</span>
-    <span>{project.period}</span>
-    <span>{project.status}</span>
+<article class:list={["project-card reveal", compact && "project-card-compact"]}>
+  <span class="project-index">{String(index + 1).padStart(2, "0")}</span>
+  <div class="project-content">
+    {
+      project.visual && (
+        <img
+          class="project-visual"
+          src={project.visual.src}
+          alt={project.visual.alt}
+          loading="lazy"
+        />
+      )
+    }
+    <div class="project-meta">
+      <span>{project.role}</span>
+      <span>{project.period}</span>
+    </div>
+    <h2>{project.title}</h2>
+    <p class="subtitle">{project.subtitle}</p>
+    <p>{project.summary}</p>
+    <ul class="tag-list" aria-label={`${project.title} tags`}>
+      {project.tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+    {
+      !compact && (
+        <ul class="check-list">
+          {project.highlights.map((item) => <li>{item}</li>)}
+        </ul>
+      )
+    }
   </div>
-  <h2>
-    <a href={project.repo}>{project.title}</a>
-  </h2>
-  <p class="subtitle">{project.subtitle}</p>
-  <p>{project.summary}</p>
-  <ul class="tag-list" aria-label={`${project.title} tags`}>
-    {project.tags.map((tag) => <li>{tag}</li>)}
-  </ul>
-  <ul class="check-list">
-    {project.highlights.map((item) => <li>{item}</li>)}
-  </ul>
+  <a class="project-link" href={project.repo} aria-label={`Open ${project.title} repository`}>
+    <span>{project.status}</span>
+    <ArrowUpRight size={19} stroke-width={1.8} aria-hidden="true" />
+  </a>
 </article>

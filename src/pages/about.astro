@@ -7,12 +7,13 @@ import { site } from "@data/site";
 <BaseLayout title="About / Now" description="About Haojie Hu and current interests.">
   <PageIntro
     eyebrow="About / Now"
-    title="I am trying to become the kind of engineer who can ask better research questions."
-    copy="The short version: I like building tools, reading failure cases, and turning vague AI ideas into things that can be inspected."
+    title="Serious about the work. Still willing to be surprised."
+    copy="I am a graduate student, an AI explorer, and the kind of builder who opens the intermediate files just to see what happened."
   />
 
   <section class="about-grid">
-    <article class="about-panel">
+    <article class="about-panel reveal">
+      <p class="section-number">01 / Right now</p>
       <h2>Right now</h2>
       <ul class="check-list">
         <li>Studying audio-visual segmentation through motion and physical consistency.</li>
@@ -21,7 +22,8 @@ import { site } from "@data/site";
       </ul>
     </article>
 
-    <article class="about-panel">
+    <article class="about-panel reveal">
+      <p class="section-number">02 / Looking for</p>
       <h2>What I am looking for</h2>
       <p>
         Research or engineering internships around multimodal learning, LLM
@@ -29,7 +31,8 @@ import { site } from "@data/site";
       </p>
     </article>
 
-    <article class="about-panel">
+    <article class="about-panel reveal">
+      <p class="section-number">03 / Working style</p>
       <h2>How I work</h2>
       <ul class="check-list">
         <li>Start with a small working loop, then inspect the failure cases.</li>
@@ -38,16 +41,27 @@ import { site } from "@data/site";
       </ul>
     </article>
 
-    <article class="about-panel contact-panel">
-      <h2>Contact</h2>
+    <article class="about-panel reveal">
+      <p class="section-number">04 / Off the clock</p>
+      <h2>Still a person</h2>
       <p>
-        The best public entry point for now is GitHub. A public email will be
-        added once I decide which address to expose here.
+        I enjoy playful systems, game mechanics, and projects that teach me a
+        new way to look at a familiar problem. Curiosity is part of the method.
       </p>
-      <div class="hero-actions">
-        <a class="button button-primary" href={site.links.github}>GitHub</a>
-        <span class="button button-disabled">{site.links.emailLabel}</span>
-      </div>
     </article>
+  </section>
+
+  <section class="contact-panel reveal">
+    <div>
+      <p class="eyebrow">Say hello</p>
+      <h2>Have a research question, internship, or odd AI idea?</h2>
+    </div>
+    <div>
+      <p>I am easiest to reach by email or GitHub. Clear context is always appreciated.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href={site.links.email}>Email me</a>
+        <a class="button button-quiet" href={site.links.github}>GitHub</a>
+      </div>
+    </div>
   </section>
 </BaseLayout>

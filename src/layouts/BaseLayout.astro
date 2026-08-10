@@ -2,6 +2,8 @@
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { site } from "@data/site";
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/newsreader";
 import "@styles/global.css";
 
 type Props = {
@@ -21,16 +23,37 @@ const canonical = new URL(Astro.url.pathname, site.url);
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f4f6f8" />
     <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/jpeg" href={site.portrait} />
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem("theme");
+        const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        document.documentElement.dataset.theme = saved || preferred;
+      })();
+    </script>
     <title>{pageTitle}</title>
   </head>
   <body>
-    <div class="site-shell">
+    <div class="site-frame">
       <Header pathname={Astro.url.pathname} />
-      <main>
+      <main class="site-shell">
         <slot />
       </main>
-      <Footer />
+      <div class="site-shell"><Footer /></div>
     </div>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+
+      toggle?.addEventListener("click", () => {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem("theme", next);
+        toggle.setAttribute("aria-label", `Switch to ${next === "dark" ? "light" : "dark"} mode`);
+      });
+    </script>
   </body>
 </html>

@@ -1,61 +1,80 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import LabBoard from "@components/LabBoard.astro";
+import ProfilePanel from "@components/ProfilePanel.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 import { featuredProjects } from "@data/projects";
 import { site } from "@data/site";
 ---
 
 <BaseLayout>
-  <section class="hero-section">
-    <div class="hero-copy">
-      <p class="eyebrow">Haojie Hu / AI Explorer</p>
-      <h1>I build multimodal systems and research tools for messy evidence.</h1>
-      <p class="hero-lede">
-        I am a Software Engineering undergraduate at Tongji University, exploring
-        audio-visual perception, reasoning budgets, and AI workflows that make
-        research easier to inspect, revise, and share.
-      </p>
-      <div class="hero-actions" aria-label="Primary actions">
-        <a class="button button-primary" href="/research/">Read the research</a>
-        <a class="button button-secondary" href="/projects/">Browse projects</a>
-      </div>
-    </div>
-    <LabBoard />
-  </section>
+  <section class="home-layout">
+    <ProfilePanel />
 
-  <section class="section-block split-block">
-    <div>
-      <p class="eyebrow">What I care about</p>
-      <h2>Systems that know when to look, listen, think, and revise.</h2>
-    </div>
-    <div class="interest-list">
-      <p><strong>Multimodal perception.</strong> Ground objects and events across audio, vision, motion, and language.</p>
-      <p><strong>Reasoning behavior.</strong> Study when longer reasoning helps and when it creates drift.</p>
-      <p><strong>Research tooling.</strong> Build pipelines that turn papers, experiments, and posters into inspectable artifacts.</p>
-    </div>
-  </section>
+    <div class="home-feed">
+      <section class="hero-copy reveal reveal-delay-1">
+        <p class="eyebrow">AI Explorer / Researcher / Builder</p>
+        <h2>I chase the moment when models stop guessing and start <em>grounding.</em></h2>
+        <p class="hero-lede">
+          I am a graduate student at Tongji University, exploring how AI systems
+          listen, look, reason, and revise. My work moves between multimodal
+          perception, reasoning behavior, and tools for better research workflows.
+        </p>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button button-primary" href="/research/">Explore my research</a>
+          <a class="button button-quiet" href="/about/">A little more about me</a>
+        </div>
+      </section>
 
-  <section class="section-block">
-    <div class="section-heading">
-      <p class="eyebrow">Selected work</p>
-      <h2>Research and software with a little personality.</h2>
-      <a class="text-link" href="/projects/">See all projects</a>
-    </div>
-    <div class="project-grid">
-      {featuredProjects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </section>
+      <section class="home-section reveal reveal-delay-2">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">What keeps me curious</p>
+            <h2>Three threads, one question: what did the model actually notice?</h2>
+          </div>
+        </div>
+        <div class="interest-list">
+          <article>
+            <span>01</span>
+            <h3>Listen to motion</h3>
+            <p>Use audio and movement together to find what is genuinely making sound.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Spend thought wisely</h3>
+            <p>Study when more reasoning helps, and when it only adds confident drift.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Build visible tools</h3>
+            <p>Make AI research workflows inspectable, editable, and easier to trust.</p>
+          </article>
+        </div>
+      </section>
 
-  <section class="section-block now-strip">
-    <div>
-      <p class="eyebrow">Now</p>
-      <h2>Currently looking for research and engineering internship opportunities in AI.</h2>
+      <section class="home-section">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2>Research ideas that became working systems.</h2>
+          </div>
+          <a class="text-link" href="/projects/">All projects</a>
+        </div>
+        <div class="project-list">
+          {featuredProjects.map((project, index) => <ProjectCard project={project} index={index} compact />)}
+        </div>
+      </section>
+
+      <section class="now-strip reveal">
+        <div>
+          <p class="eyebrow">Open to good problems</p>
+          <h2>Looking for AI research and engineering internships.</h2>
+        </div>
+        <p>
+          Especially multimodal systems, LLM reasoning, research agents, and
+          teams that care about evaluation as much as the demo.
+        </p>
+        <a class="button button-inverse" href={site.links.email}>Start a conversation</a>
+      </section>
     </div>
-    <p>
-      Best fit: multimodal systems, LLM reasoning, agents for research workflows,
-      and teams that care about evaluation rather than just demos.
-    </p>
-    <a class="button button-secondary" href={site.links.github}>GitHub</a>
   </section>
 </BaseLayout>
