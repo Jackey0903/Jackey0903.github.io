@@ -131,17 +131,14 @@ h3 {
   color: var(--ink);
 }
 
-.brand-mark {
-  display: grid;
+.brand-avatar {
+  display: block;
   width: 39px;
   height: 39px;
-  place-items: center;
   border: 1px solid var(--ink);
-  border-radius: 3px;
-  background: var(--lime);
-  color: #171b24;
-  font-size: 12px;
-  font-weight: 800;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  object-fit: cover;
 }
 
 .brand-name {
