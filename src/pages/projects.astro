@@ -8,11 +8,11 @@ import { projects } from "@data/projects";
 <BaseLayout title="Projects" description="Selected research and software projects by Haojie Hu.">
   <PageIntro
     eyebrow="Projects"
-    title="Ideas are more interesting once they have failure modes."
-    copy="A mix of research code, agent workflows, and playful engineering. I like projects that turn abstract questions into things we can inspect, test, and improve."
+    title="Projects"
+    copy="Selected research code, agent workflows, and engineering projects. These systems turn research questions into artifacts that can be inspected, tested, and improved."
   />
 
   <section class="project-list project-list-full">
-    {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    {projects.map((project) => <ProjectCard project={project} />)}
   </section>
 </BaseLayout>
