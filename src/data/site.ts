@@ -1,8 +1,7 @@
 export const site = {
   name: "Haojie Hu",
-  shortName: "HH",
-  role: "AI Explorer & Graduate Student",
-  affiliation: "Graduate Student at Tongji University",
+  role: "AI Explorer & Undergraduate Student",
+  affiliation: "Software Engineering Undergraduate at Tongji University",
   location: "Shanghai, China",
   description:
     "I explore multimodal intelligence, reasoning behavior, and AI tools that make research easier to inspect and share.",
