@@ -1,5 +1,6 @@
 ---
 import { navItems, site } from "@data/site";
+import { Moon, Sun } from "@lucide/astro";
 
 type Props = {
   pathname: string;
@@ -12,21 +13,26 @@ const isActive = (href: string) => {
 };
 ---
 
-<header class="site-header">
-  <a class="brand" href="/" aria-label={`${site.name} home`}>
-    <span class="brand-mark">hh</span>
-    <span>
-      <strong>{site.name}</strong>
-      <small>{site.role}</small>
-    </span>
-  </a>
-  <nav class="nav-links" aria-label="Primary navigation">
-    {
-      navItems.map((item) => (
-        <a href={item.href} class:list={[isActive(item.href) && "active"]}>
-          {item.label}
-        </a>
-      ))
-    }
-  </nav>
+<header class="site-header-wrap">
+  <div class="site-header site-shell">
+    <a class="brand" href="/" aria-label={`${site.name} home`}>
+      <span class="brand-mark">{site.shortName}</span>
+      <span class="brand-name">{site.name}</span>
+    </a>
+    <div class="header-actions">
+      <nav class="nav-links" aria-label="Primary navigation">
+        {
+          navItems.map((item) => (
+            <a href={item.href} class:list={[isActive(item.href) && "active"]}>
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme">
+        <Sun class="theme-icon theme-icon-sun" size={18} stroke-width={1.8} aria-hidden="true" />
+        <Moon class="theme-icon theme-icon-moon" size={18} stroke-width={1.8} aria-hidden="true" />
+      </button>
+    </div>
+  </div>
 </header>

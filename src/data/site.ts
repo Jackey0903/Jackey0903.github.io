@@ -1,15 +1,19 @@
 export const site = {
   name: "Haojie Hu",
-  role: "AI Explorer",
-  affiliation: "Software Engineering Undergraduate, Tongji University",
+  shortName: "HH",
+  role: "AI Explorer & Graduate Student",
+  affiliation: "Graduate Student at Tongji University",
+  location: "Shanghai, China",
   description:
-    "I build multimodal systems and research tools, with a soft spot for the messy parts where models meet real evidence.",
+    "I explore multimodal intelligence, reasoning behavior, and AI tools that make research easier to inspect and share.",
   url: "https://jackey0903.github.io",
+  portrait: "/assets/avatar.jpg",
   links: {
     github: "https://github.com/Jackey0903",
     tongji: "https://www.tongji.edu.cn/",
     profileRepo: "https://github.com/Jackey0903/Jackey0903",
-    emailLabel: "Email to be added",
+    email: "mailto:3038115521@qq.com",
+    emailLabel: "3038115521@qq.com",
   },
 };
 
