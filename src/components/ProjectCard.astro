@@ -4,31 +4,31 @@ import { ArrowUpRight } from "@lucide/astro";
 
 type Props = {
   project: Project;
-  index?: number;
   compact?: boolean;
 };
 
-const { project, index = 0, compact = false } = Astro.props;
+const { project, compact = false } = Astro.props;
 ---
 
-<article class:list={["project-card reveal", compact && "project-card-compact"]}>
-  <span class="project-index">{String(index + 1).padStart(2, "0")}</span>
-  <div class="project-content">
-    {
-      project.visual && (
+<article class:list={["project-card reveal", compact && "project-card-compact", project.visual && !compact && "has-visual"]}>
+  {
+    project.visual && !compact && (
+      <div class="project-media">
         <img
           class="project-visual"
           src={project.visual.src}
           alt={project.visual.alt}
           loading="lazy"
         />
-      )
-    }
+      </div>
+    )
+  }
+  <div class="project-content">
     <div class="project-meta">
       <span>{project.role}</span>
       <span>{project.period}</span>
     </div>
-    <h2>{project.title}</h2>
+    <h2><a href={project.repo}>{project.title}</a></h2>
     <p class="subtitle">{project.subtitle}</p>
     <p>{project.summary}</p>
     <ul class="tag-list" aria-label={`${project.title} tags`}>
@@ -41,9 +41,11 @@ const { project, index = 0, compact = false } = Astro.props;
         </ul>
       )
     }
+    <div class="project-footer">
+      <span class="project-status">{project.status}</span>
+      <a class="project-link" href={project.repo} aria-label={`Open ${project.title} repository`}>
+        Repository <ArrowUpRight size={15} stroke-width={1.8} aria-hidden="true" />
+      </a>
+    </div>
   </div>
-  <a class="project-link" href={project.repo} aria-label={`Open ${project.title} repository`}>
-    <span>{project.status}</span>
-    <ArrowUpRight size={19} stroke-width={1.8} aria-hidden="true" />
-  </a>
 </article>
