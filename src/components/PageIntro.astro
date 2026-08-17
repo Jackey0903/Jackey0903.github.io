@@ -6,10 +6,11 @@ type Props = {
 };
 
 const { eyebrow, title, copy } = Astro.props;
+const showEyebrow = eyebrow.toLowerCase() !== title.toLowerCase();
 ---
 
 <section class="page-intro reveal">
-  <p class="eyebrow">{eyebrow}</p>
+  {showEyebrow && <p class="eyebrow">{eyebrow}</p>}
   <h1>{title}</h1>
   <p>{copy}</p>
 </section>

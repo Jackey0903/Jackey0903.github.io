@@ -16,8 +16,9 @@ const isActive = (href: string) => {
 <header class="site-header-wrap">
   <div class="site-header site-shell">
     <a class="brand" href="/" aria-label={`${site.name} home`}>
-      <img class="brand-avatar" src={site.portrait} alt="" />
       <span class="brand-name">{site.name}</span>
+      <span class="brand-separator">/</span>
+      <span class="brand-role">AI Explorer</span>
     </a>
     <div class="header-actions">
       <nav class="nav-links" aria-label="Primary navigation">

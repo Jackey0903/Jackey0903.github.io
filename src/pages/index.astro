@@ -3,87 +3,88 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import ProjectCard from "@components/ProjectCard.astro";
 import { featuredProjects } from "@data/projects";
 import { site } from "@data/site";
-import { ArrowUpRight, GitBranch, GraduationCap, Mail, MapPin } from "@lucide/astro";
+import { ArrowUpRight } from "@lucide/astro";
 ---
 
 <BaseLayout>
-  <section class="home-intro reveal">
-    <div class="intro-copy">
-      <h1><strong>Haojie</strong> Hu</h1>
-      <p class="affiliation">
-        AI Explorer and Software Engineering Undergraduate at
-        <a href={site.links.tongji}>Tongji University</a>.
+  <article class="academic-home reveal">
+    <header class="content-header">
+      <p class="eyebrow">Biography</p>
+      <h1>About Me</h1>
+      <p class="page-lead">
+        I am <strong>Haojie Hu</strong>, a Software Engineering undergraduate at
+        <a href={site.links.tongji}>Tongji University</a> working at the intersection
+        of AI research and engineering.
       </p>
-      <div class="bio">
-        <p>
-          I work on multimodal intelligence, reasoning behavior, and AI systems for research.
-          I am especially interested in how models connect what they hear, see, and infer,
-          and how those decisions can be made easier to inspect.
-        </p>
-        <p>
-          My recent work spans audio-visual segmentation, adaptive reasoning budgets,
-          and multi-agent tools for scientific communication. I enjoy moving between
-          research questions and systems that make those questions testable.
-        </p>
-      </div>
-      <p class="research-interests">
-        <strong>Research interests:</strong> multimodal learning, LLM reasoning,
-        AI agents, and research tools.
+    </header>
+
+    <div class="academic-copy">
+      <p>
+        My research explores how intelligent systems connect auditory, visual,
+        and linguistic evidence. I am particularly interested in models that can
+        ground their decisions in observable signals rather than rely on surface-level correlations.
       </p>
-      <div class="academic-links" aria-label="Profile links">
-        <a href={site.links.github}>
-          <GitBranch size={17} aria-hidden="true" /> GitHub
-        </a>
-        <a href={site.links.email}>
-          <Mail size={17} aria-hidden="true" /> Email
-        </a>
-        <a href={site.links.tongji}>
-          <GraduationCap size={18} aria-hidden="true" /> Tongji
-        </a>
-        <span><MapPin size={17} aria-hidden="true" /> {site.location}</span>
+      <p>
+        Recent projects study physically consistent audio-visual segmentation,
+        reasoning budgets before multimodal grounding, and multi-agent systems for
+        scientific communication. I enjoy turning research questions into reproducible
+        systems whose behavior can be inspected and improved.
+      </p>
+    </div>
+
+    <section class="academic-section">
+      <h2>Research Interests</h2>
+      <ul class="research-interest-list">
+        <li>
+          <strong>Multimodal Perception.</strong>{" "}
+          Audio-visual learning, motion-aware grounding, and physically consistent segmentation.
+        </li>
+        <li>
+          <strong>Reasoning and Grounding.</strong>{" "}
+          Understanding when explicit reasoning helps perception and when it introduces drift.
+        </li>
+        <li>
+          <strong>AI for Research.</strong>{" "}
+          Agent workflows that make scientific content easier to understand, edit, and evaluate.
+        </li>
+      </ul>
+    </section>
+
+    <section class="academic-section news-section reveal reveal-delay-1">
+      <h2>News</h2>
+      <ol class="news-list">
+        <li>
+          <time datetime="2026-08">Aug 2026</time>
+          <p><strong>PosterMELD</strong> released its paper, code, and evaluation benchmark for editable scientific poster generation.</p>
+        </li>
+        <li>
+          <time datetime="2026-08">Aug 2026</time>
+          <p><strong>DraftCode</strong> placed third at the AWS Summit Shanghai hackathon and advanced to the Macau round.</p>
+        </li>
+        <li>
+          <time datetime="2026">2026</time>
+          <p>Released the reproducible <strong>To Think or Not to Think</strong> codebase for reasoning-budget studies in Ref-AVS.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="academic-section selected-section">
+      <div class="section-heading reveal">
+        <h2>Selected Projects</h2>
+        <a class="text-link" href="/projects/">All projects <ArrowUpRight size={15} aria-hidden="true" /></a>
       </div>
-    </div>
+      <div class="project-list">
+        {featuredProjects.map((project) => <ProjectCard project={project} compact />)}
+      </div>
+    </section>
 
-    <figure class="home-portrait">
-      <img src={site.portrait} alt={`${site.name}'s GitHub avatar`} />
-      <figcaption>Undergraduate researcher · AI builder</figcaption>
-    </figure>
-  </section>
-
-  <section class="home-section news-section reveal reveal-delay-1">
-    <h2>news</h2>
-    <ol class="news-list">
-      <li>
-        <time datetime="2026-08">Aug 2026</time>
-        <p><strong>PosterMELD</strong> released its paper, code, and evaluation benchmark for editable scientific poster generation.</p>
-      </li>
-      <li>
-        <time datetime="2026-08">Aug 2026</time>
-        <p><strong>DraftCode</strong> placed third at the AWS Summit Shanghai hackathon and advanced to the Macau round.</p>
-      </li>
-      <li>
-        <time datetime="2026">2026</time>
-        <p>Released the reproducible <strong>To Think or Not to Think</strong> codebase for reasoning-budget studies in Ref-AVS.</p>
-      </li>
-    </ol>
-  </section>
-
-  <section class="home-section selected-section">
-    <div class="section-heading reveal">
-      <h2>selected work</h2>
-      <a class="text-link" href="/projects/">All projects <ArrowUpRight size={15} aria-hidden="true" /></a>
-    </div>
-    <div class="project-list">
-      {featuredProjects.map((project) => <ProjectCard project={project} compact />)}
-    </div>
-  </section>
-
-  <section class="availability reveal">
-    <h2>currently</h2>
-    <p>
-      I am looking for AI research and engineering internships, especially around
-      multimodal systems, LLM reasoning, agents, and evaluation-focused AI.
-    </p>
-    <a class="text-link" href={site.links.email}>Get in touch <ArrowUpRight size={15} aria-hidden="true" /></a>
-  </section>
+    <section class="academic-section opportunity-note reveal">
+      <h2>Current Opportunities</h2>
+      <p>
+        I am interested in AI research and engineering internships involving multimodal systems,
+        LLM reasoning, agents, or evaluation-focused AI.
+      </p>
+      <a class="text-link" href={site.links.email}>Contact me <ArrowUpRight size={15} aria-hidden="true" /></a>
+    </section>
+  </article>
 </BaseLayout>

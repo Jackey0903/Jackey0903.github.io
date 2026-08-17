@@ -1,0 +1,48 @@
+---
+import { Building2, GitBranch, GraduationCap, Mail, MapPin } from "@lucide/astro";
+import { site } from "@data/site";
+---
+
+<aside class="author-profile" aria-label={`${site.name} profile`}>
+  <div class="author-identity">
+    <img class="author-avatar" src={site.portrait} alt={`${site.name}'s GitHub avatar`} />
+    <div>
+      <h2>{site.name}</h2>
+      <p>{site.role}</p>
+    </div>
+  </div>
+
+  <p class="author-bio">
+    Undergraduate researcher exploring multimodal intelligence, reasoning,
+    and practical AI systems.
+  </p>
+
+  <ul class="author-details">
+    <li>
+      <MapPin size={16} aria-hidden="true" />
+      <span>{site.location}</span>
+    </li>
+    <li>
+      <Building2 size={16} aria-hidden="true" />
+      <a href={site.links.tongji}>Tongji University</a>
+    </li>
+    <li>
+      <GraduationCap size={16} aria-hidden="true" />
+      <span>Software Engineering</span>
+    </li>
+    <li>
+      <Mail size={16} aria-hidden="true" />
+      <a href={site.links.email}>Email</a>
+    </li>
+    <li>
+      <GitBranch size={16} aria-hidden="true" />
+      <a href={site.links.github}>GitHub</a>
+    </li>
+  </ul>
+
+  <div class="author-keywords" aria-label="Research areas">
+    <span>Multimodal Learning</span>
+    <span>LLM Reasoning</span>
+    <span>AI Agents</span>
+  </div>
+</aside>

@@ -4,52 +4,48 @@ import PageIntro from "@components/PageIntro.astro";
 import { site } from "@data/site";
 ---
 
-<BaseLayout title="About / Now" description="About Haojie Hu and current interests.">
+<BaseLayout title="Now" description="Current research interests and opportunities for Haojie Hu.">
   <PageIntro
-    eyebrow="About / Now"
-    title="About / Now"
-    copy="I am a software engineering undergraduate at Tongji University, working across AI research and engineering. This page records what I am focusing on now."
+    eyebrow="Current"
+    title="Now"
+    copy="A concise record of my current research focus, working approach, and the opportunities I am seeking."
   />
 
-  <section class="about-grid">
-    <article class="about-panel reveal">
-      <p class="section-number">Current focus</p>
-      <h2>Right now</h2>
-      <ul class="check-list">
+  <div class="now-sections">
+    <section class="now-section reveal">
+      <h2>Current Research</h2>
+      <ul>
         <li>Studying audio-visual segmentation through motion and physical consistency.</li>
-        <li>Testing when LLM reasoning budgets help multimodal grounding.</li>
-        <li>Building agent workflows for paper understanding and poster generation.</li>
+        <li>Testing when reasoning budgets improve multimodal grounding.</li>
+        <li>Building agent workflows for paper understanding and scientific communication.</li>
       </ul>
-    </article>
+    </section>
 
-    <article class="about-panel reveal">
-      <p class="section-number">Opportunities</p>
-      <h2>What I am looking for</h2>
+    <section class="now-section reveal">
+      <h2>Research Approach</h2>
       <p>
-        Research or engineering internships around multimodal learning, LLM
-        reasoning, AI agents, research tooling, or evaluation-heavy AI systems.
+        I begin with a small reproducible loop, inspect failure cases, and expand only
+        when the evidence supports it. I value readable pipelines, explicit evaluation,
+        and intermediate artifacts that make model behavior easier to question.
       </p>
-    </article>
+    </section>
 
-    <article class="about-panel reveal">
-      <p class="section-number">Working style</p>
-      <h2>How I work</h2>
-      <ul class="check-list">
-        <li>Start with a small working loop, then inspect the failure cases.</li>
-        <li>Prefer readable pipelines over magic one-shot demos.</li>
-        <li>Write notes because half of research is remembering why a choice mattered.</li>
-      </ul>
-    </article>
-
-    <article class="about-panel reveal">
-      <p class="section-number">Beyond research</p>
-      <h2>Still a person</h2>
+    <section class="now-section reveal">
+      <h2>Opportunities</h2>
       <p>
-        I enjoy playful systems, game mechanics, and projects that teach me a
-        new way to look at a familiar problem. Curiosity is part of the method.
+        I am seeking research or engineering internships in multimodal learning,
+        LLM reasoning, AI agents, research tooling, and evaluation-focused AI systems.
       </p>
-    </article>
-  </section>
+    </section>
+
+    <section class="now-section reveal">
+      <h2>Beyond Research</h2>
+      <p>
+        I enjoy game systems, practical software projects, and learning through
+        building. These projects keep my engineering work concrete and playful.
+      </p>
+    </section>
+  </div>
 
   <section class="contact-panel reveal">
     <div>
@@ -57,7 +53,7 @@ import { site } from "@data/site";
       <h2>Research, internships, and collaboration</h2>
     </div>
     <div>
-      <p>I am easiest to reach by email or GitHub. Clear context is always appreciated.</p>
+      <p>I am easiest to reach by email or GitHub.</p>
       <div class="hero-actions">
         <a class="button button-primary" href={site.links.email}>Email me</a>
         <a class="button button-quiet" href={site.links.github}>GitHub</a>
