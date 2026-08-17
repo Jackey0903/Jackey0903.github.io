@@ -1,6 +1,6 @@
 export const site = {
   name: "Haojie Hu",
-  role: "AI Explorer & Undergraduate Student",
+  role: "AI Explorer & Undergraduate Researcher",
   affiliation: "Software Engineering Undergraduate at Tongji University",
   location: "Shanghai, China",
   description:
@@ -17,9 +17,9 @@ export const site = {
 };
 
 export const navItems = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "About" },
   { href: "/research/", label: "Research" },
   { href: "/projects/", label: "Projects" },
   { href: "/notes/", label: "Notes" },
-  { href: "/about/", label: "About / Now" },
+  { href: "/about/", label: "Now" },
 ];
