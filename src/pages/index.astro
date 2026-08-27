@@ -113,13 +113,18 @@ import { featuredProjects } from "@data/projects";
   }
 
   <h2 class="section__title" id="honors">&#127894; Honors and Awards</h2>
-  <ul class="definition-list">
+  <ul class="award-list">
     {
       honors.map((honor) => (
-        <li>
-          {honor.year && <><span class="term">{honor.year}</span>{" - "}</>}
-          <span class="term">{honor.title}</span>
-          {honor.detail ? ` - ${honor.detail}` : "."}
+        <li class="award">
+          <span class={`award__badge award__badge--${honor.kind}`}>
+            <Icon name={honor.kind === "scholarship" ? "medal" : "star"} />
+          </span>
+          <span class="award__body">
+            <span class="award__title">{honor.title}</span>
+            {honor.org && <span class="award__org">{honor.org}</span>}
+          </span>
+          {honor.year && <span class="award__year">{honor.year}</span>}
         </li>
       ))
     }

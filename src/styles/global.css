@@ -653,6 +653,79 @@ a.news-highlight:hover {
   font-weight: 600;
 }
 
+.award-list {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+}
+
+.award {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 -0.6rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  transition: background 0.18s ease;
+}
+
+.award:hover {
+  background: var(--bg-soft);
+}
+
+.award__badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-soft);
+  color: var(--link);
+}
+
+.award__badge svg {
+  width: 17px;
+  height: 17px;
+}
+
+.award__badge--honor {
+  border-color: var(--rule);
+  background: var(--bg-soft);
+  color: var(--faint);
+}
+
+.award__body {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+
+.award__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--heading);
+}
+
+.award__org {
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: var(--faint);
+}
+
+.award__year {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -917,6 +990,15 @@ a.news-highlight:hover {
 
   .project-card__media {
     flex: 0 0 auto;
+  }
+
+  .award {
+    align-items: flex-start;
+  }
+
+  .award__year {
+    align-self: flex-start;
+    padding-top: 0.1rem;
   }
 
   .news-list li {
