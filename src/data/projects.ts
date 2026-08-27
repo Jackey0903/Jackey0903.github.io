@@ -41,9 +41,9 @@ export const projects: Project[] = [
   {
     title: "VoxSprite",
     subtitle: "Turn any voice into a playable instrument",
-    role: "Hardware and web project",
+    role: "Xiaohongshu AI Builder",
     period: "2026",
-    status: "Released",
+    status: "Excellence Award",
     summary:
       "A voice-sampling instrument that captures a sound, maps it across a keyboard, and plays it back through Web Audio with an ESP32-S3, physical keys, and reactive LEDs.",
     tags: ["TypeScript", "Web Audio", "ESP32-S3"],
@@ -75,9 +75,9 @@ export const projects: Project[] = [
     ],
     repo: "https://github.com/Jackey0903/Stardew-Valley",
     image: {
-      src: "/assets/stardew-inventory.png",
-      thumb: "/assets/thumbs/stardew-inventory.jpg",
-      alt: "In-game inventory grid with tools and items beside the player sprite and stat bars",
+      src: "/assets/stardew-title.png",
+      thumb: "/assets/thumbs/stardew-title.jpg",
+      alt: "Stardew Valley title screen with New and Exit buttons over a pixel-art landscape",
     },
   },
 ];

@@ -48,19 +48,17 @@ export type Honor = {
 export const honors: Honor[] = [
   {
     title: "National Scholarship",
-    detail: "Ministry of Education. Awarded to the top 1% of undergraduates.",
+    detail: "Ministry of Education.",
   },
   {
     title: "Qidi Scholarship",
-    detail: "Top 1% of the cohort.",
   },
   {
     year: "2024",
     title: "First-Class Outstanding Student Scholarship",
-    detail: "Top 5% of the cohort.",
   },
   {
-    year: "2025",
+    year: "2024, 2025",
     title: "Social Activity Scholarship",
   },
   {
@@ -69,7 +67,6 @@ export const honors: Honor[] = [
   },
   {
     title: "Computer Science Youth Pioneer",
-    detail: "One of ten students selected university-wide.",
   },
 ];
 
