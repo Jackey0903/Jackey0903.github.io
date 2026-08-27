@@ -117,8 +117,9 @@ import { featuredProjects } from "@data/projects";
     {
       honors.map((honor) => (
         <li>
-          <span class="term">{honor.year}</span> - {honor.title}.
-          {honor.detail ? ` ${honor.detail}` : ""}
+          {honor.year && <><span class="term">{honor.year}</span>{" - "}</>}
+          <span class="term">{honor.title}</span>
+          {honor.detail ? ` - ${honor.detail}` : "."}
         </li>
       ))
     }

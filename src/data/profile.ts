@@ -12,7 +12,7 @@ export const education: EducationEntry[] = [
     degree: "B.Eng., Software Engineering",
     institution: "Tongji University",
     institutionUrl: "https://www.tongji.edu.cn/",
-    note: "Shanghai, China",
+    note: "Shanghai, China. GPA 4.79/5.00, ranked 6/191 (top 3%)",
   },
 ];
 
@@ -40,16 +40,36 @@ export const interests: Interest[] = [
 ];
 
 export type Honor = {
-  year: string;
+  year?: string;
   title: string;
   detail?: string;
 };
 
 export const honors: Honor[] = [
   {
-    year: "2026",
-    title: "Third Place, AWS Summit Shanghai Hackathon",
-    detail: "Advanced to the Macau round with DraftCode.",
+    title: "National Scholarship",
+    detail: "Ministry of Education. Awarded to the top 1% of undergraduates.",
+  },
+  {
+    title: "Qidi Scholarship",
+    detail: "Top 1% of the cohort.",
+  },
+  {
+    year: "2024",
+    title: "First-Class Outstanding Student Scholarship",
+    detail: "Top 5% of the cohort.",
+  },
+  {
+    year: "2025",
+    title: "Social Activity Scholarship",
+  },
+  {
+    year: "2024, 2025",
+    title: "Tongji University Outstanding Student",
+  },
+  {
+    title: "Computer Science Youth Pioneer",
+    detail: "One of ten students selected university-wide.",
   },
 ];
 

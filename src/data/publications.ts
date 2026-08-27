@@ -60,7 +60,7 @@ export const publicationGroups: PublicationGroup[] = [
         venue: "Under review - code released",
         href: "https://github.com/Jackey0903/SKA-VCT",
         summary:
-          "Audio-visual segmentation leans on static visual saliency, so a silent guitar on a poster can outvote the one being played. KEVA makes audio interrogate the motion field before it may drive segmentation, cutting the drop under deceptive saliency from 10.90 to 3.27 points.",
+          "Audio-visual segmentation leans on static visual saliency, so a silent guitar on a poster can outvote the one actually being played. KEVA makes audio interrogate the motion field before it is allowed to drive segmentation, and keeps the appearance prior when a source barely moves.",
         links: [
           { label: "Code", href: "https://github.com/Jackey0903/SKA-VCT" },
         ],
@@ -76,7 +76,7 @@ export const publicationGroups: PublicationGroup[] = [
         venue: "Under review - code released",
         href: "https://github.com/Jackey0903/To-Think-or-Not-to-Think",
         summary:
-          "Longer chain-of-thought is not uniformly better. The state a model holds just before its first reasoning token already predicts whether reasoning will help, and routing on it keeps about 96% of always-long quality at 40% of the tokens.",
+          "Longer chain-of-thought is not uniformly better - forcing it on an already-clear query is an overthinking trap. The state a model holds just before its first reasoning token turns out to encode whether reasoning will help, so the budget can be routed before any reasoning is generated.",
         links: [
           {
             label: "Code",

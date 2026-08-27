@@ -25,7 +25,7 @@ export const news: NewsItem[] = [
     date: "08/2026",
     highlight: "To Think or Not to Think",
     body:
-      "released - paper page, results, and full reproduction docs for pre-decisional reasoning budgets in Ref-AVS.",
+      "released - paper page and full reproduction docs for pre-decisional reasoning budgets in Ref-AVS.",
     href: "https://github.com/Jackey0903/To-Think-or-Not-to-Think",
   },
   {

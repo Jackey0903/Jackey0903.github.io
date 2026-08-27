@@ -75,9 +75,9 @@ export const projects: Project[] = [
     ],
     repo: "https://github.com/Jackey0903/Stardew-Valley",
     image: {
-      src: "/assets/stardew-mapscene.png",
-      thumb: "/assets/thumbs/stardew-mapscene.jpg",
-      alt: "In-game map selection scene with pixel-art sky and mountains",
+      src: "/assets/stardew-inventory.png",
+      thumb: "/assets/thumbs/stardew-inventory.jpg",
+      alt: "In-game inventory grid with tools and items beside the player sprite and stat bars",
     },
   },
 ];
