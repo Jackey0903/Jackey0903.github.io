@@ -1,0 +1,62 @@
+---
+import type { EntryLink } from "@data/publications";
+import { site } from "@data/site";
+
+type Props = {
+  title: string;
+  href?: string;
+  authors?: string[];
+  venue?: string;
+  summary?: string;
+  links?: EntryLink[];
+  image?: { src: string; alt: string };
+  placeholder?: string;
+};
+
+const { title, href, authors, venue, summary, links, image, placeholder } =
+  Astro.props;
+
+const fallback = placeholder ?? title.split(":")[0];
+---
+
+<article class="entry">
+  <div class="entry__media">
+    {
+      image ? (
+        <a href={image.src} aria-label={`Preview: ${title}`}>
+          <img class="entry__thumb" src={image.src} alt={image.alt} loading="lazy" width="176" height="108" />
+        </a>
+      ) : (
+        <div class="entry__placeholder" aria-hidden="true">{fallback}</div>
+      )
+    }
+  </div>
+  <div class="entry__body">
+    <p class="entry__title">
+      {href ? <a href={href}>{title}</a> : title}
+    </p>
+    {
+      authors && authors.length > 0 && (
+        <p class="entry__authors">
+          {authors.map((author, index) => (
+            <>
+              {index > 0 && ", "}
+              {author === site.name ? <strong>{author}</strong> : author}
+            </>
+          ))}
+        </p>
+      )
+    }
+    {venue && <p class="entry__venue">{venue}</p>}
+    {summary && <p class="entry__summary">{summary}</p>}
+    {
+      links && links.length > 0 && (
+        <p class="entry__links">
+          {links.map((link) => (
+            <a class="entry__link" href={link.href}>{link.label}</a>
+          ))}
+        </p>
+      )
+    }
+  </div>
+</article>

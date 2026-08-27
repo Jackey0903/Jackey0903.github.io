@@ -1,3 +1,5 @@
+import type { EntryLink } from "@data/publications";
+
 export type Project = {
   title: string;
   subtitle: string;
@@ -8,73 +10,21 @@ export type Project = {
   tags: string[];
   highlights: string[];
   repo: string;
-  visual?: {
-    src: string;
-    alt: string;
-  };
+  links?: EntryLink[];
+  image?: { src: string; alt: string };
+  /** Short label shown when no preview image exists. */
+  placeholder?: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "SKA-VCT: Listening to the Motion",
-    subtitle: "Physical consistency for audio-visual segmentation",
-    role: "Research project",
-    period: "2026",
-    status: "Paper coming soon; code under preparation",
-    summary:
-      "A research project on locating sounding objects by aligning audio spectra with motion evidence instead of trusting static visual saliency alone.",
-    tags: ["Audio-Visual Segmentation", "Motion", "Multimodal Learning"],
-    highlights: [
-      "Uses spectral-kinematic alignment to retrieve sound-activated motion cues.",
-      "Adds motion-prompted query generation to focus segmentation on genuine sounding objects.",
-      "Targets false positives caused by salient but silent objects.",
-    ],
-    repo: "https://github.com/Jackey0903/SKA-VCT",
-  },
-  {
-    title: "To Think or Not to Think",
-    subtitle: "Pre-decisional reasoning budgets for Ref-AVS",
-    role: "Research codebase",
-    period: "2026",
-    status: "Code released",
-    summary:
-      "A reproducible Think-Ground-Segment pipeline for comparing zero, short, and long reasoning before grounding referring audio-visual expressions.",
-    tags: ["LLM Reasoning", "Interpretability", "Ref-AVS"],
-    highlights: [
-      "Frames reasoning length as a decision made before segmentation.",
-      "Compares compact object descriptions against longer reasoning traces.",
-      "Connects reasoning budget choices to segmentation behavior and failure modes.",
-    ],
-    repo: "https://github.com/Jackey0903/To-Think-or-Not-to-Think",
-  },
-  {
-    title: "PosterMELD",
-    subtitle: "Editable, diverse, print-ready paper-to-poster generation",
-    role: "Research system",
-    period: "2026",
-    status: "Paper and code released",
-    summary:
-      "A multi-agent system that turns scientific papers into editable PowerPoint posters while controlling design diversity, content grounding, and print readiness.",
-    tags: ["Multi-Agent Systems", "Scientific Communication", "PPTX"],
-    highlights: [
-      "Coordinates paper understanding, capacity-aware writing, layout, visual placement, and bounded quality repair.",
-      "Keeps text, figures, tables, section bars, and logos editable across 24 poster templates.",
-      "Evaluates end-to-end generation on 621 papers with print-readiness and visual-quality metrics.",
-    ],
-    repo: "https://github.com/Jackey0903/PosterMELD",
-    visual: {
-      src: "/assets/postermeld-teaser.png",
-      alt: "PosterMELD comparison showing editable and compact generated posters",
-    },
-  },
-  {
     title: "DraftCode: NBA Draft War Room",
     subtitle: "Three-signal NBA draft prediction with auditable agents",
-    role: "AWS Hackathon",
+    role: "AWS Summit Shanghai Hackathon",
     period: "2026",
-    status: "3rd place; advanced to Macau",
+    status: "Third place; advanced to the Macau round",
     summary:
-      "An auditable NBA draft intelligence system that combines talent, expert mock drafts, and market signals before simulating 30 distinct GM decision styles.",
+      "An auditable NBA draft intelligence system that fuses talent, expert mock drafts, and market signals, then simulates 30 distinct GM decision styles over 1,500 Monte Carlo scenarios.",
     tags: ["Python", "AWS Serverless", "Multi-Agent Systems"],
     highlights: [
       "Runs 1,500 Monte Carlo draft scenarios to produce confidence-scored picks instead of one brittle ranking.",
@@ -82,9 +32,49 @@ export const projects: Project[] = [
       "Maps the workflow to S3, Lambda, Step Functions, DynamoDB, and an evidence ledger for auditability.",
     ],
     repo: "https://github.com/Jackey0903/draftcode",
-    visual: {
+    image: {
       src: "/assets/draftcode-architecture.png",
       alt: "DraftCode system architecture for the NBA draft prediction war room",
+    },
+  },
+  {
+    title: "Auto-Connection",
+    subtitle: "Local-first workspace for graduate applications",
+    role: "Personal tool",
+    period: "2026",
+    status: "In active use",
+    summary:
+      "A local-first application workspace for tracking opportunities, matching advisors, drafting outreach email, and keeping sending behind an explicit review gate.",
+    tags: ["Vue", "Local-first", "Workflow Tooling"],
+    highlights: [
+      "Tracks opportunities and advisor matches in one reviewable workspace.",
+      "Drafts outreach email that a human approves before anything is sent.",
+      "Keeps every record on the local machine rather than in a hosted service.",
+    ],
+    repo: "https://github.com/Jackey0903/Auto-Connection",
+    image: {
+      src: "/assets/covers/auto-connection.svg",
+      alt: "A small outreach graph with one reviewed node",
+    },
+  },
+  {
+    title: "VoxSprite",
+    subtitle: "Turn any voice into a playable instrument",
+    role: "Hardware and web project",
+    period: "2026",
+    status: "Released",
+    summary:
+      "A voice-sampling instrument that captures a sound, maps it across a keyboard, and plays it back through Web Audio with an ESP32-S3, physical keys, and reactive LEDs.",
+    tags: ["TypeScript", "Web Audio", "ESP32-S3"],
+    highlights: [
+      "Records a voice sample in the browser and pitches it across a playable range.",
+      "Bridges the web runtime to physical keys and LED feedback on an ESP32-S3.",
+      "Built to keep the latency budget small enough to feel like an instrument.",
+    ],
+    repo: "https://github.com/Jackey0903/VoxSprite",
+    image: {
+      src: "/assets/covers/voxsprite.svg",
+      alt: "A voice waveform landing on a keyboard",
     },
   },
   {
@@ -94,7 +84,7 @@ export const projects: Project[] = [
     period: "2024",
     status: "Completed coursework",
     summary:
-      "A game systems project that helped me practice interaction loops, collision detection, inventory design, map scenes, and simulation mechanics.",
+      "A game systems project covering interaction loops, collision detection, inventory design, map scenes, and farming simulation mechanics.",
     tags: ["C++", "Cocos2d-x", "Game Systems"],
     highlights: [
       "Implemented map scenes, backpack logic, movement, and base simulation systems.",
@@ -102,6 +92,10 @@ export const projects: Project[] = [
       "A good reminder that engineering can stay playful.",
     ],
     repo: "https://github.com/Jackey0903/Stardew-Valley",
+    image: {
+      src: "/assets/covers/stardew.svg",
+      alt: "Isometric farm plots with a sprout",
+    },
   },
 ];
 

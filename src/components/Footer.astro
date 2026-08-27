@@ -1,14 +1,15 @@
 ---
 import { site } from "@data/site";
+
+const year = new Date().getFullYear();
 ---
 
-<footer class="site-footer-wrap">
-  <div class="site-footer site-shell">
-    <p>© 2026 Haojie Hu. Software Engineering Undergraduate at Tongji University.</p>
-    <div class="footer-links">
-      <a href={site.links.github}>GitHub</a>
-      <a href={site.links.email}>Email</a>
-      <a href="https://github.com/academicpages/academicpages.github.io">Academic Pages</a>
-    </div>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>&copy; {year} {site.name}</p>
+    <p>
+      Built with <a href="https://astro.build">Astro</a> &middot;{" "}
+      <a href={site.links.siteRepo}>Source</a>
+    </p>
   </div>
 </footer>

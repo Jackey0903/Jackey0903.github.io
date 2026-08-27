@@ -1,9 +1,8 @@
 ---
-import Header from "@components/Header.astro";
+import Masthead from "@components/Masthead.astro";
+import Sidebar from "@components/Sidebar.astro";
 import Footer from "@components/Footer.astro";
-import AuthorProfile from "@components/AuthorProfile.astro";
 import { site } from "@data/site";
-import "@fontsource-variable/source-sans-3";
 import "@styles/global.css";
 
 type Props = {
@@ -12,7 +11,8 @@ type Props = {
 };
 
 const { title, description = site.description } = Astro.props;
-const pageTitle = title ? `${title} | ${site.name}` : `${site.name} - ${site.role}`;
+const fullName = `${site.name} (${site.nameCn})`;
+const pageTitle = title ? `${title} | ${site.name}` : fullName;
 const canonical = new URL(Astro.url.pathname, site.url);
 ---
 
@@ -20,12 +20,32 @@ const canonical = new URL(Astro.url.pathname, site.url);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#ffffff" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/jpeg" href={site.portrait} />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1420" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(site.portrait, site.url)} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: site.name,
+      alternateName: site.nameCn,
+      url: site.url,
+      image: new URL(site.portrait, site.url).toString(),
+      jobTitle: site.role,
+      affiliation: { "@type": "Organization", name: site.affiliation },
+      sameAs: [site.links.github],
+    })} />
     <script is:inline>
       (() => {
         const saved = localStorage.getItem("theme");
@@ -35,21 +55,17 @@ const canonical = new URL(Astro.url.pathname, site.url);
         document.documentElement.dataset.theme = saved || preferred;
       })();
     </script>
-    <title>{pageTitle}</title>
   </head>
   <body>
-    <div class="site-frame">
-      <Header pathname={Astro.url.pathname} />
-      <main class="site-shell site-main">
-        <div class="page-layout">
-          <AuthorProfile />
-          <div class="page-content">
-            <slot />
-          </div>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Masthead pathname={Astro.url.pathname} />
+    <div class="site-layout">
+      <Sidebar />
+      <main class="page" id="main">
+        <slot />
       </main>
-      <Footer />
     </div>
+    <Footer />
     <script>
       const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
 
@@ -57,7 +73,6 @@ const canonical = new URL(Astro.url.pathname, site.url);
         const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
         document.documentElement.dataset.theme = next;
         localStorage.setItem("theme", next);
-        toggle.setAttribute("aria-label", `Switch to ${next === "dark" ? "light" : "dark"} mode`);
       });
     </script>
   </body>

@@ -1,90 +1,140 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import ProjectCard from "@components/ProjectCard.astro";
-import { featuredProjects } from "@data/projects";
+import Entry from "@components/Entry.astro";
+import Icon from "@components/Icon.astro";
 import { site } from "@data/site";
-import { ArrowUpRight } from "@lucide/astro";
+import { education, honors, interests, skills } from "@data/profile";
+import { news } from "@data/news";
+import { publicationGroups } from "@data/publications";
+import { featuredProjects } from "@data/projects";
 ---
 
 <BaseLayout>
-  <article class="academic-home reveal">
-    <header class="content-header">
-      <p class="eyebrow">Biography</p>
-      <h1>About Me</h1>
-      <p class="page-lead">
-        I am <strong>Haojie Hu</strong>, a Software Engineering undergraduate at
-        <a href={site.links.tongji}>Tongji University</a> working at the intersection
-        of AI research and engineering.
-      </p>
-    </header>
+  <h1 class="page__title" id="about">&#128173; About me</h1>
+  <div class="prose">
+    <p>
+      I am an undergraduate student in Software Engineering at{" "}
+      <a href={site.links.tongji}>Tongji University</a>, Shanghai. I study how AI
+      systems listen, look, reason, and revise - and I build tools that make
+      those decisions easier to inspect.
+    </p>
+    <p>
+      My work so far spans physically consistent audio-visual segmentation,
+      reasoning budgets before multimodal grounding, and multi-agent systems for
+      scientific communication. I like research questions whose failures are
+      visible, and pipelines that keep their intermediate artifacts open to
+      disagreement. My research interests include:
+    </p>
+    <ul>
+      {
+        interests.map((interest) => (
+          <li>
+            <strong>{interest.label}:</strong> {interest.detail}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 
-    <div class="academic-copy">
-      <p>
-        My research explores how intelligent systems connect auditory, visual,
-        and linguistic evidence. I am particularly interested in models that can
-        ground their decisions in observable signals rather than rely on surface-level correlations.
-      </p>
-      <p>
-        Recent projects study physically consistent audio-visual segmentation,
-        reasoning budgets before multimodal grounding, and multi-agent systems for
-        scientific communication. I enjoy turning research questions into reproducible
-        systems whose behavior can be inspected and improved.
-      </p>
-    </div>
+  <h2 class="section__title" id="education">&#128214; Education</h2>
+  <div class="prose">
+    <ul>
+      {
+        education.map((entry) => (
+          <li>
+            {entry.period}: {entry.degree},{" "}
+            {entry.institutionUrl ? (
+              <a href={entry.institutionUrl}>{entry.institution}</a>
+            ) : (
+              entry.institution
+            )}
+            {entry.note ? `, ${entry.note}.` : "."}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 
-    <section class="academic-section">
-      <h2>Research Interests</h2>
-      <ul class="research-interest-list">
+  <h2 class="section__title" id="news">&#128293; News</h2>
+  <ul class="news-list">
+    {
+      news.map((item) => (
         <li>
-          <strong>Multimodal Perception.</strong>{" "}
-          Audio-visual learning, motion-aware grounding, and physically consistent segmentation.
+          <span class="news-date">[{item.date}]</span>
+          {item.href ? (
+            <a class="news-highlight" href={item.href}>{item.highlight}</a>
+          ) : (
+            <span class="news-highlight">{item.highlight}</span>
+          )}{" "}
+          {item.body}
         </li>
-        <li>
-          <strong>Reasoning and Grounding.</strong>{" "}
-          Understanding when explicit reasoning helps perception and when it introduces drift.
-        </li>
-        <li>
-          <strong>AI for Research.</strong>{" "}
-          Agent workflows that make scientific content easier to understand, edit, and evaluate.
-        </li>
-      </ul>
-    </section>
+      ))
+    }
+  </ul>
 
-    <section class="academic-section news-section reveal reveal-delay-1">
-      <h2>News</h2>
-      <ol class="news-list">
-        <li>
-          <time datetime="2026-08">Aug 2026</time>
-          <p><strong>PosterMELD</strong> released its paper, code, and evaluation benchmark for editable scientific poster generation.</p>
-        </li>
-        <li>
-          <time datetime="2026-08">Aug 2026</time>
-          <p><strong>DraftCode</strong> placed third at the AWS Summit Shanghai hackathon and advanced to the Macau round.</p>
-        </li>
-        <li>
-          <time datetime="2026">2026</time>
-          <p>Released the reproducible <strong>To Think or Not to Think</strong> codebase for reasoning-budget studies in Ref-AVS.</p>
-        </li>
-      </ol>
-    </section>
+  <h2 class="section__title" id="publications">&#128221; Publications</h2>
+  {
+    publicationGroups.map((group) => (
+      <>
+        <h3 class="group__title">{group.heading}</h3>
+        {group.entries.map((entry) => (
+          <Entry
+            title={entry.title}
+            href={entry.href}
+            authors={entry.authors}
+            venue={entry.venue}
+            summary={entry.summary}
+            links={entry.links}
+            image={entry.image}
+            placeholder={entry.placeholder}
+          />
+        ))}
+      </>
+    ))
+  }
 
-    <section class="academic-section selected-section">
-      <div class="section-heading reveal">
-        <h2>Selected Projects</h2>
-        <a class="text-link" href="/projects/">All projects <ArrowUpRight size={15} aria-hidden="true" /></a>
-      </div>
-      <div class="project-list">
-        {featuredProjects.map((project) => <ProjectCard project={project} compact />)}
-      </div>
-    </section>
+  <h2 class="section__title" id="projects">
+    <span>&#128640; Projects</span>
+    <a class="text-link section__aside" href="/projects/">
+      All projects <Icon name="arrow" />
+    </a>
+  </h2>
+  {
+    featuredProjects.map((project) => (
+      <Entry
+        title={project.title}
+        href={project.repo}
+        venue={`${project.period} \u00b7 ${project.role} \u00b7 ${project.status}`}
+        summary={project.summary}
+        links={[{ label: "Code", href: project.repo }, ...(project.links ?? [])]}
+        image={project.image}
+        placeholder={project.placeholder}
+      />
+    ))
+  }
 
-    <section class="academic-section opportunity-note reveal">
-      <h2>Current Opportunities</h2>
-      <p>
-        I am interested in AI research and engineering internships involving multimodal systems,
-        LLM reasoning, agents, or evaluation-focused AI.
-      </p>
-      <a class="text-link" href={site.links.email}>Contact me <ArrowUpRight size={15} aria-hidden="true" /></a>
-    </section>
-  </article>
+  <h2 class="section__title" id="honors">&#127894; Honors and Awards</h2>
+  <ul class="definition-list">
+    {
+      honors.map((honor) => (
+        <li>
+          <span class="term">{honor.year}</span> - {honor.title}.
+          {honor.detail ? ` ${honor.detail}` : ""}
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2 class="section__title" id="now">&#128205; Now</h2>
+  <div class="prose">
+    <p>
+      I am looking for AI research and engineering internships around multimodal
+      learning, LLM reasoning, research agents, and evaluation-heavy systems. I
+      am easiest to reach by <a href={site.links.email}>email</a> or on{" "}
+      <a href={site.links.github}>GitHub</a>.
+    </p>
+    <ul class="tag-row">
+      {skills.map((skill) => <li class="tag">{skill}</li>)}
+    </ul>
+  </div>
 </BaseLayout>

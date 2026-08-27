@@ -1,0 +1,30 @@
+---
+import Icon from "@components/Icon.astro";
+import { site } from "@data/site";
+---
+
+<aside class="sidebar">
+  <img class="author__avatar" src={site.portrait} alt={site.name} width="175" height="175" />
+  <div>
+    <h2 class="author__name">
+      {site.name} <span class="author__name-cn">({site.nameCn})</span>
+    </h2>
+    <p class="author__bio">{site.bio}</p>
+    <a class="author__follow" href={site.links.github} rel="me">Follow</a>
+    <ul class="author__urls">
+      <li><Icon name="pin" /><span>{site.location}</span></li>
+      <li>
+        <Icon name="school" />
+        <a href={site.links.tongji}>{site.affiliation}</a>
+      </li>
+      <li>
+        <Icon name="mail" />
+        <a href={site.links.email}>Email</a>
+      </li>
+      <li>
+        <Icon name="github" />
+        <a href={site.links.github}>GitHub</a>
+      </li>
+    </ul>
+  </div>
+</aside>
