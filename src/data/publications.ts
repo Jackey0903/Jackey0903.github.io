@@ -12,8 +12,6 @@ export type Publication = {
   summary?: string;
   links?: EntryLink[];
   image?: { src: string; alt: string; thumb?: string };
-  /** Short label shown when no preview image exists. */
-  placeholder?: string;
 };
 
 export type PublicationGroup = {
@@ -38,6 +36,8 @@ export const publicationGroups: PublicationGroup[] = [
         ],
         venue: "arXiv:2608.02218",
         href: "https://arxiv.org/abs/2608.02218",
+        summary:
+          "A multi-agent pipeline that compresses papers into editable, print-ready posters through capacity-aware slots and bounded quality repair. 81.3% print-ready rate across 621 papers at about $0.38 per poster.",
         links: [
           { label: "Paper", href: "https://arxiv.org/abs/2608.02218" },
           { label: "Code", href: "https://github.com/Jackey0903/PosterMELD" },
@@ -52,30 +52,31 @@ export const publicationGroups: PublicationGroup[] = [
     ],
   },
   {
-    heading: "Work in Progress",
+    heading: "Under Review",
     entries: [
       {
         title:
-          "SKA-VCT: Listening to the Motion - Spectral-Kinematic Alignment for Audio-Visual Segmentation",
-        venue: "Manuscript in preparation",
+          "Listening to the Motion: Audio-Conditioned Kinematic Verification for Robust Audio-Visual Segmentation",
+        venue: "Under review - code released",
         href: "https://github.com/Jackey0903/SKA-VCT",
         summary:
-          "Audio-visual segmentation mistakes visually salient but silent objects for sounding ones. We let audio retrieve motion evidence through spectral-kinematic alignment, then use that prior to steer object queries.",
+          "Audio-visual segmentation leans on static visual saliency, so a silent guitar on a poster can outvote the one being played. KEVA makes audio interrogate the motion field before it may drive segmentation, cutting the drop under deceptive saliency from 10.90 to 3.27 points.",
         links: [
           { label: "Code", href: "https://github.com/Jackey0903/SKA-VCT" },
         ],
         image: {
-          src: "/assets/covers/ska-vct.svg",
-          alt: "Audio spectrum bars with a motion-aligned band picked out",
+          src: "/assets/keva-framework.jpg",
+          thumb: "/assets/thumbs/keva-framework.jpg",
+          alt: "KEVA architecture: spectral-kinematic alignment, motion-prompted queries, boundary refinement",
         },
       },
       {
         title:
           "To Think or Not to Think: Pre-Decisional Reasoning Budgets for Referring Audio-Visual Segmentation",
-        venue: "Ongoing study - code released",
+        venue: "Under review - code released",
         href: "https://github.com/Jackey0903/To-Think-or-Not-to-Think",
         summary:
-          "Longer reasoning is not automatically better. A reproducible Think-Ground-Segment pipeline compares zero, short, and long reasoning budgets before grounding, and ties each budget to the failure modes it causes.",
+          "Longer chain-of-thought is not uniformly better. The state a model holds just before its first reasoning token already predicts whether reasoning will help, and routing on it keeps about 96% of always-long quality at 40% of the tokens.",
         links: [
           {
             label: "Code",
@@ -83,8 +84,9 @@ export const publicationGroups: PublicationGroup[] = [
           },
         ],
         image: {
-          src: "/assets/covers/ref-avs.svg",
-          alt: "Three reasoning tracks of increasing length aimed at one target",
+          src: "/assets/think-pipeline.jpg",
+          thumb: "/assets/thumbs/think-pipeline.jpg",
+          alt: "Pipeline routing each sample to zero, short, or long reasoning before grounding and segmentation",
         },
       },
     ],

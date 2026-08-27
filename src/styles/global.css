@@ -262,9 +262,9 @@ a:hover {
 .author__avatar {
   width: 175px;
   height: 175px;
-  padding: 5px;
+  padding: 4px;
   border: 1px solid var(--hairline);
-  border-radius: 50%;
+  border-radius: 14px;
   object-fit: cover;
   display: block;
 }

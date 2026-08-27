@@ -39,26 +39,6 @@ export const projects: Project[] = [
     },
   },
   {
-    title: "Auto-Connection",
-    subtitle: "Local-first workspace for graduate applications",
-    role: "Personal tool",
-    period: "2026",
-    status: "In active use",
-    summary:
-      "A local-first application workspace for tracking opportunities, matching advisors, drafting outreach email, and keeping sending behind an explicit review gate.",
-    tags: ["Vue", "Local-first", "Workflow Tooling"],
-    highlights: [
-      "Tracks opportunities and advisor matches in one reviewable workspace.",
-      "Drafts outreach email that a human approves before anything is sent.",
-      "Keeps every record on the local machine rather than in a hosted service.",
-    ],
-    repo: "https://github.com/Jackey0903/Auto-Connection",
-    image: {
-      src: "/assets/covers/auto-connection.svg",
-      alt: "A small outreach graph with one reviewed node",
-    },
-  },
-  {
     title: "VoxSprite",
     subtitle: "Turn any voice into a playable instrument",
     role: "Hardware and web project",
@@ -74,8 +54,9 @@ export const projects: Project[] = [
     ],
     repo: "https://github.com/Jackey0903/VoxSprite",
     image: {
-      src: "/assets/covers/voxsprite.svg",
-      alt: "A voice waveform landing on a keyboard",
+      src: "/assets/voxsprite-app.png",
+      thumb: "/assets/thumbs/voxsprite-app.jpg",
+      alt: "VoxSprite desktop app: sprite roster, stage, and a Do-Re-Mi key row",
     },
   },
   {
@@ -94,8 +75,9 @@ export const projects: Project[] = [
     ],
     repo: "https://github.com/Jackey0903/Stardew-Valley",
     image: {
-      src: "/assets/covers/stardew.svg",
-      alt: "Isometric farm plots with a sprout",
+      src: "/assets/stardew-mapscene.png",
+      thumb: "/assets/thumbs/stardew-mapscene.jpg",
+      alt: "In-game map selection scene with pixel-art sky and mountains",
     },
   },
 ];
