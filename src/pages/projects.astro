@@ -24,7 +24,7 @@ import { projects } from "@data/projects";
           {
             project.image ? (
               <a href={project.image.src} aria-label={`Preview: ${project.title}`}>
-                <img class="entry__thumb" src={project.image.src} alt={project.image.alt} loading="lazy" width="176" height="108" />
+                <img class="entry__thumb" src={project.image.thumb ?? project.image.src} alt={project.image.alt} loading="lazy" width="176" height="108" />
               </a>
             ) : (
               <div class="entry__placeholder" aria-hidden="true">{project.placeholder ?? project.title}</div>

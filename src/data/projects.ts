@@ -11,7 +11,7 @@ export type Project = {
   highlights: string[];
   repo: string;
   links?: EntryLink[];
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; thumb?: string };
   /** Short label shown when no preview image exists. */
   placeholder?: string;
 };
@@ -34,6 +34,7 @@ export const projects: Project[] = [
     repo: "https://github.com/Jackey0903/draftcode",
     image: {
       src: "/assets/draftcode-architecture.png",
+      thumb: "/assets/thumbs/draftcode-architecture.jpg",
       alt: "DraftCode system architecture for the NBA draft prediction war room",
     },
   },

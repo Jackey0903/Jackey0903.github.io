@@ -9,7 +9,7 @@ type Props = {
   venue?: string;
   summary?: string;
   links?: EntryLink[];
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; thumb?: string };
   placeholder?: string;
 };
 
@@ -24,7 +24,7 @@ const fallback = placeholder ?? title.split(":")[0];
     {
       image ? (
         <a href={image.src} aria-label={`Preview: ${title}`}>
-          <img class="entry__thumb" src={image.src} alt={image.alt} loading="lazy" width="176" height="108" />
+          <img class="entry__thumb" src={image.thumb ?? image.src} alt={image.alt} loading="lazy" width="176" height="108" />
         </a>
       ) : (
         <div class="entry__placeholder" aria-hidden="true">{fallback}</div>

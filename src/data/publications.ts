@@ -11,7 +11,7 @@ export type Publication = {
   href?: string;
   summary?: string;
   links?: EntryLink[];
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; thumb?: string };
   /** Short label shown when no preview image exists. */
   placeholder?: string;
 };
@@ -45,6 +45,7 @@ export const publicationGroups: PublicationGroup[] = [
         ],
         image: {
           src: "/assets/postermeld-teaser.png",
+          thumb: "/assets/thumbs/postermeld-teaser.jpg",
           alt: "PosterMELD generated posters showing editable, print-ready layouts",
         },
       },
