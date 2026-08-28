@@ -53,11 +53,13 @@ export const honors: Honor[] = [
   {
     title: "National Scholarship",
     org: "Ministry of Education of the People's Republic of China",
+    year: "2025",
     kind: "scholarship",
   },
   {
     title: "Qidi Scholarship",
     org: "Tongji University",
+    year: "2026",
     kind: "scholarship",
   },
   {
