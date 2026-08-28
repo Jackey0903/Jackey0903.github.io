@@ -83,6 +83,7 @@ export const honors: Honor[] = [
   {
     title: "Computer Science Youth Pioneer",
     org: "School of Computer Science and Technology, Tongji University",
+    year: "2026",
     kind: "honor",
   },
 ];
