@@ -31,6 +31,7 @@ export const interests = [
   "multimodal large language models",
   "video understanding",
   "video generation",
+  "world models",
 ];
 
 export type Honor = {

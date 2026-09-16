@@ -3,9 +3,9 @@ export const site = {
   nameCn: "胡浩杰",
   role: "Incoming Ph.D. Student at Shanghai Jiao Tong University",
   location: "Shanghai, China",
-  bio: "Incoming Ph.D. student at Shanghai Jiao Tong University, jointly trained at Shanghai Innovation Institute, focusing on multimodal large language models, video understanding, and video generation.",
+  bio: "Incoming Ph.D. student at Shanghai Jiao Tong University, jointly trained at Shanghai Innovation Institute, focusing on multimodal large language models, video understanding and generation, and world models.",
   description:
-    "Haojie Hu is an incoming Ph.D. student at Shanghai Jiao Tong University, jointly trained at Shanghai Innovation Institute, working on multimodal large language models, video understanding, and video generation.",
+    "Haojie Hu is an incoming Ph.D. student at Shanghai Jiao Tong University, jointly trained at Shanghai Innovation Institute, working on multimodal large language models, video understanding and generation, and world models.",
   url: "https://jackey0903.github.io",
   portrait: "/assets/avatar.jpg",
   affiliations: [
