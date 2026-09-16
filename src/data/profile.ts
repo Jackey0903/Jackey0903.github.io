@@ -3,25 +3,26 @@ export type EducationEntry = {
   degree: string;
   institution: string;
   institutionUrl?: string;
-  /** Secondary affiliation, e.g. a joint-training institute. */
-  joint?: { name: string; url?: string };
-  note?: string;
 };
 
 export const education: EducationEntry[] = [
   {
     period: "2027.09 - Present",
+    degree: "Jointly Trained Ph.D. Student",
+    institution: "Shanghai Innovation Institute",
+    institutionUrl: "https://www.sii.edu.cn/",
+  },
+  {
+    period: "2027.09 - Present",
     degree: "Ph.D. Student",
     institution: "Shanghai Jiao Tong University",
     institutionUrl: "https://www.sjtu.edu.cn/",
-    joint: { name: "Shanghai Innovation Institute", url: "https://www.sii.edu.cn/" },
   },
   {
     period: "2023.09 - 2027.06",
     degree: "B.Eng., Software Engineering",
     institution: "Tongji University",
     institutionUrl: "https://www.tongji.edu.cn/",
-    note: "Shanghai, China",
   },
 ];
 
