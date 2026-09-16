@@ -3,10 +3,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Entry from "@components/Entry.astro";
 import Icon from "@components/Icon.astro";
 import { site } from "@data/site";
-import { education, honors, interests, skills } from "@data/profile";
+import { education, honors, interests } from "@data/profile";
 import { news } from "@data/news";
-import { publicationGroups } from "@data/publications";
-import { featuredProjects } from "@data/projects";
+import { publicationGroups, publicationLegend } from "@data/publications";
+import { projects } from "@data/projects";
+
+const [tongji, sjtu, sii] = site.affiliations;
+const interestList =
+  interests.slice(0, -1).join(", ") + ", and " + interests[interests.length - 1];
 ---
 
 <BaseLayout>
@@ -14,26 +18,11 @@ import { featuredProjects } from "@data/projects";
   <div class="prose">
     <p>
       I am an undergraduate student in Software Engineering at{" "}
-      <a href={site.links.tongji}>Tongji University</a>, Shanghai. I study how AI
-      systems listen, look, reason, and revise - and I build tools that make
-      those decisions easier to inspect.
+      <a href={tongji.url}>{tongji.name}</a> and an incoming Ph.D. student at{" "}
+      <a href={sjtu.url}>{sjtu.name}</a>, jointly trained at{" "}
+      <a href={sii.url}>{sii.name}</a>. My research interests include{" "}
+      {interestList}.
     </p>
-    <p>
-      My work so far spans physically consistent audio-visual segmentation,
-      reasoning budgets before multimodal grounding, and multi-agent systems for
-      scientific communication. I like research questions whose failures are
-      visible, and pipelines that keep their intermediate artifacts open to
-      disagreement. My research interests include:
-    </p>
-    <ul>
-      {
-        interests.map((interest) => (
-          <li>
-            <strong>{interest.label}:</strong> {interest.detail}
-          </li>
-        ))
-      }
-    </ul>
   </div>
 
   <h2 class="section__title" id="education">&#128214; Education</h2>
@@ -55,23 +44,28 @@ import { featuredProjects } from "@data/projects";
   </div>
 
   <h2 class="section__title" id="news">&#128293; News</h2>
-  <ul class="news-list">
-    {
-      news.map((item) => (
-        <li>
-          <span class="news-date">[{item.date}]</span>
-          {item.href ? (
-            <a class="news-highlight" href={item.href}>{item.highlight}</a>
-          ) : (
-            <span class="news-highlight">{item.highlight}</span>
-          )}{" "}
-          {item.body}
-        </li>
-      ))
-    }
-  </ul>
+  <div class="prose">
+    <ul>
+      {
+        news.map((item) => (
+          <li>
+            [{item.date}]{" "}
+            {item.href ? (
+              <a class="news-highlight" href={item.href}>{item.highlight}</a>
+            ) : (
+              <span class="news-highlight">{item.highlight}</span>
+            )}{" "}
+            {item.body}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 
-  <h2 class="section__title" id="publications">&#128221; Publications</h2>
+  <h2 class="section__title" id="publications">
+    <span>&#128221; Publications</span>
+    <span class="publication-legend">{publicationLegend}</span>
+  </h2>
   {
     publicationGroups.map((group) => (
       <>
@@ -82,7 +76,6 @@ import { featuredProjects } from "@data/projects";
             href={entry.href}
             authors={entry.authors}
             venue={entry.venue}
-            summary={entry.summary}
             links={entry.links}
             image={entry.image}
           />
@@ -91,22 +84,16 @@ import { featuredProjects } from "@data/projects";
     ))
   }
 
-  <h2 class="section__title" id="projects">
-    <span>&#128640; Projects</span>
-    <a class="text-link section__aside" href="/projects/">
-      All projects <Icon name="arrow" />
-    </a>
-  </h2>
+  <h2 class="section__title" id="projects">&#128640; Projects</h2>
   {
-    featuredProjects.map((project) => (
+    projects.map((project) => (
       <Entry
         title={project.title}
         href={project.repo}
-        venue={`${project.period} \u00b7 ${project.role} \u00b7 ${project.status}`}
+        venue={`${project.period} · ${project.role} · ${project.status}`}
         summary={project.summary}
         links={[{ label: "Code", href: project.repo }, ...(project.links ?? [])]}
         image={project.image}
-        placeholder={project.placeholder}
       />
     ))
   }
@@ -128,17 +115,4 @@ import { featuredProjects } from "@data/projects";
       ))
     }
   </ul>
-
-  <h2 class="section__title" id="now">&#128205; Now</h2>
-  <div class="prose">
-    <p>
-      I am looking for AI research and engineering internships around multimodal
-      learning, LLM reasoning, research agents, and evaluation-heavy systems. I
-      am easiest to reach by <a href={site.links.email}>email</a> or on{" "}
-      <a href={site.links.github}>GitHub</a>.
-    </p>
-    <ul class="tag-row">
-      {skills.map((skill) => <li class="tag">{skill}</li>)}
-    </ul>
-  </div>
 </BaseLayout>

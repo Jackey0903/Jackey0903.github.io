@@ -1,29 +1,29 @@
 # Haojie Hu — Personal Website
 
-Astro-powered academic homepage for Haojie Hu, laid out as a single-page profile
-(About / Education / News / Publications / Projects / Honors / Now) with a sticky
-sidebar, plus deeper `Projects` and `Notes` pages.
+Astro-powered academic homepage for Haojie Hu (胡浩杰), a one-to-one port of the
+AcadHomepage layout: sticky sidebar, then About / Education / News /
+Publications / Projects / Honors on a single page.
 
 ## Structure
 
 ```
 src/
-  data/          # all content lives here — edit these, not the templates
-    site.ts        identity, contact links, nav
-    profile.ts     education, research interests, honors, skills
-    news.ts        dated news items
-    publications.ts papers, grouped by section
-    projects.ts    project entries (also used by /projects/)
-  components/    # Masthead, Sidebar, Entry, Icon, Footer
-  layouts/       # BaseLayout — head tags, theme script, page shell
-  pages/         # index, projects, notes
-  styles/        # global.css — all styling, light + dark tokens
-  content/notes/ # markdown notes
+  data/            # all content lives here — edit these, not the templates
+    site.ts          identity, bio, affiliations, contact links
+    profile.ts       education, research interests, honours
+    news.ts          dated news items
+    publications.ts  papers, grouped by section
+    projects.ts      project entries
+  components/      # Masthead, Sidebar, Entry, Icon
+  layouts/         # BaseLayout — head tags and page shell
+  pages/           # index only
+  styles/          # global.css — the ported stylesheet
+public/assets/     # portrait, figures, and 528px thumbnails
 ```
 
-To add a paper, append to `src/data/publications.ts`. Preview thumbnails go in
-`public/assets/` and render at 176×108; entries without an image fall back to a
-labelled placeholder.
+To add a paper, append to `src/data/publications.ts`. Put the preview image in
+`public/assets/` and a 528px-wide JPEG in `public/assets/thumbs/`; entries
+render at 176×108 and link to the full-size file.
 
 ## Development
 

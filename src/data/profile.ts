@@ -26,27 +26,11 @@ export const education: EducationEntry[] = [
   },
 ];
 
-export type Interest = {
-  label: string;
-  detail: string;
-};
-
-export const interests: Interest[] = [
-  {
-    label: "Multimodal perception",
-    detail:
-      "grounding objects and events across audio, vision, motion, and language.",
-  },
-  {
-    label: "Reasoning behavior",
-    detail:
-      "understanding when longer reasoning helps a model and when it only creates drift.",
-  },
-  {
-    label: "AI for research",
-    detail:
-      "inspectable agent workflows for reading, experimentation, and scientific communication.",
-  },
+/** Rendered inline in the About paragraph, in this order. */
+export const interests = [
+  "multimodal large language models",
+  "video understanding",
+  "video generation",
 ];
 
 export type Honor = {
@@ -54,7 +38,7 @@ export type Honor = {
   title: string;
   /** Awarding body. */
   org?: string;
-  /** Year, or comma-separated years. Omit when unknown. */
+  /** Year, or comma-separated years. */
   year?: string;
   kind: "scholarship" | "honor";
 };
@@ -96,15 +80,4 @@ export const honors: Honor[] = [
     year: "2026",
     kind: "honor",
   },
-];
-
-export const skills = [
-  "Python",
-  "PyTorch",
-  "C++",
-  "TypeScript",
-  "Computer Vision",
-  "Multimodal Learning",
-  "Multi-Agent Systems",
-  "Research Tooling",
 ];

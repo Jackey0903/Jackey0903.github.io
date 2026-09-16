@@ -1,33 +1,9 @@
 ---
-import Icon from "@components/Icon.astro";
-import { navItems, site } from "@data/site";
-
-type Props = { pathname: string };
-
-const { pathname } = Astro.props;
-const isCurrent = (href: string) =>
-  href.startsWith("/#") ? false : pathname === href;
+import { site } from "@data/site";
 ---
 
 <header class="masthead">
   <div class="masthead__inner">
     <a class="masthead__brand" href="/">{site.name}</a>
-    <nav class="masthead__nav" aria-label="Primary">
-      {
-        navItems.map((item) => (
-          <a
-            href={item.href}
-            data-optional={item.href.startsWith("/#") ? "" : undefined}
-            aria-current={isCurrent(item.href) ? "page" : undefined}
-          >
-            {item.label}
-          </a>
-        ))
-      }
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch colour theme">
-        <Icon name="sun" />
-        <Icon name="moon" />
-      </button>
-    </nav>
   </div>
 </header>

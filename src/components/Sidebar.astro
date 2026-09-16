@@ -4,7 +4,7 @@ import { site } from "@data/site";
 ---
 
 <aside class="sidebar">
-  <img class="author__avatar" src={site.portrait} alt={site.name} width="175" height="175" />
+  <img class="author__avatar" src={site.portrait} alt={`${site.name} (${site.nameCn})`} width="175" height="175" />
   <div>
     <h2 class="author__name">
       {site.name} <span class="author__name-cn">({site.nameCn})</span>
@@ -13,17 +13,21 @@ import { site } from "@data/site";
     <a class="author__follow" href={site.links.github} rel="me">Follow</a>
     <ul class="author__urls">
       <li><Icon name="pin" /><span>{site.location}</span></li>
-      <li>
-        <Icon name="school" />
-        <a href={site.links.tongji}>{site.affiliation}</a>
-      </li>
+      {
+        site.affiliations.map((a) => (
+          <li>
+            <Icon name="school" />
+            <a href={a.url}>{a.name}</a>
+          </li>
+        ))
+      }
       <li>
         <Icon name="mail" />
         <a href={site.links.email}>Email</a>
       </li>
       <li>
         <Icon name="github" />
-        <a href={site.links.github}>GitHub</a>
+        <a href={site.links.github}>Github</a>
       </li>
     </ul>
   </div>

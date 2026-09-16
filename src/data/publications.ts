@@ -9,7 +9,6 @@ export type Publication = {
   authors?: string[];
   venue: string;
   href?: string;
-  summary?: string;
   links?: EntryLink[];
   image?: { src: string; alt: string; thumb?: string };
 };
@@ -36,8 +35,6 @@ export const publicationGroups: PublicationGroup[] = [
         ],
         venue: "arXiv:2608.02218",
         href: "https://arxiv.org/abs/2608.02218",
-        summary:
-          "A multi-agent pipeline that compresses papers into editable, print-ready posters through capacity-aware slots and bounded quality repair. 81.3% print-ready rate across 621 papers at about $0.38 per poster.",
         links: [
           { label: "Paper", href: "https://arxiv.org/abs/2608.02218" },
           { label: "Code", href: "https://github.com/Jackey0903/PosterMELD" },
@@ -59,8 +56,6 @@ export const publicationGroups: PublicationGroup[] = [
           "Listening to the Motion: Audio-Conditioned Kinematic Verification for Robust Audio-Visual Segmentation",
         venue: "Under review - code released",
         href: "https://github.com/Jackey0903/SKA-VCT",
-        summary:
-          "Audio-visual segmentation leans on static visual saliency, so a silent guitar on a poster can outvote the one actually being played. KEVA makes audio interrogate the motion field before it is allowed to drive segmentation, and keeps the appearance prior when a source barely moves.",
         links: [
           { label: "Code", href: "https://github.com/Jackey0903/SKA-VCT" },
         ],
@@ -75,8 +70,6 @@ export const publicationGroups: PublicationGroup[] = [
           "To Think or Not to Think: Pre-Decisional Reasoning Budgets for Referring Audio-Visual Segmentation",
         venue: "Under review - code released",
         href: "https://github.com/Jackey0903/To-Think-or-Not-to-Think",
-        summary:
-          "Longer chain-of-thought is not uniformly better - forcing it on an already-clear query is an overthinking trap. The state a model holds just before its first reasoning token turns out to encode whether reasoning will help, so the budget can be routed before any reasoning is generated.",
         links: [
           {
             label: "Code",
@@ -92,3 +85,5 @@ export const publicationGroups: PublicationGroup[] = [
     ],
   },
 ];
+
+export const publicationLegend = "* equal contribution, \u2020 corresponding author";
