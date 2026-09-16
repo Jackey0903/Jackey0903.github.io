@@ -48,6 +48,16 @@ import { featuredProjects } from "@data/projects";
             ) : (
               entry.institution
             )}
+            {entry.joint && (
+              <>
+                , jointly trained at{" "}
+                {entry.joint.url ? (
+                  <a href={entry.joint.url}>{entry.joint.name}</a>
+                ) : (
+                  entry.joint.name
+                )}
+              </>
+            )}
             {entry.note ? `, ${entry.note}.` : "."}
           </li>
         ))
