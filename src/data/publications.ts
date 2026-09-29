@@ -3,10 +3,15 @@ export type EntryLink = {
   href: string;
 };
 
+export type PublicationAuthor = {
+  name: string;
+  href?: string;
+};
+
 export type Publication = {
   title: string;
   /** Rendered in order; entries matching `site.name` are emphasised. */
-  authors?: string[];
+  authors?: PublicationAuthor[];
   venue: string;
   href?: string;
   links?: EntryLink[];
@@ -25,8 +30,26 @@ export const publicationGroups: PublicationGroup[] = [
       {
         title:
           "To Think or Not to Think: Pre-Decisional Reasoning Budgets for Referring Audio-Visual Segmentation",
+        authors: [
+          {
+            name: "Haojie Hu",
+            href: "https://openreview.net/profile?id=~Haojie_Hu1",
+          },
+          {
+            name: "Senda Chen",
+            href: "https://openreview.net/profile?id=~Senda_Chen1",
+          },
+          {
+            name: "Ying Shen",
+            href: "https://openreview.net/profile?id=~Ying_Shen2",
+          },
+          {
+            name: "Lin Zhang",
+            href: "https://openreview.net/profile?id=~Lin_Zhang2",
+          },
+        ],
         venue:
-          "Advances in Neural Information Processing Systems (NeurIPS), 2026",
+          "Advances in Neural Information Processing Systems (NeurIPS), 2026 · arXiv coming soon",
         href: "https://neurips.cc/virtual/2026/poster/148558",
         links: [
           {
@@ -53,12 +76,12 @@ export const publicationGroups: PublicationGroup[] = [
         title:
           "PosterMELD: Multi-Agent Paper-to-Poster Generation for Controllable Design Diversity with Editable Print-Ready Outputs",
         authors: [
-          "Haojie Hu",
-          "Chenhao Dang",
-          "Yaojia Liu",
-          "Hengrui Kang",
-          "Conghui He",
-          "Weijia Li",
+          { name: "Haojie Hu" },
+          { name: "Chenhao Dang" },
+          { name: "Yaojia Liu" },
+          { name: "Hengrui Kang" },
+          { name: "Conghui He" },
+          { name: "Weijia Li" },
         ],
         venue: "arXiv:2608.02218",
         href: "https://arxiv.org/abs/2608.02218",
