@@ -8,6 +8,13 @@ export type NewsItem = {
 
 export const news: NewsItem[] = [
   {
+    date: "09/2026",
+    highlight: "To Think or Not to Think",
+    body:
+      "was accepted to NeurIPS 2026 - our work on pre-decisional reasoning budgets for referring audio-visual segmentation.",
+    href: "https://neurips.cc/virtual/2026/poster/148558",
+  },
+  {
     date: "08/2026",
     highlight: "PosterMELD",
     body:

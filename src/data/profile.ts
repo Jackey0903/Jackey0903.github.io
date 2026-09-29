@@ -7,19 +7,19 @@ export type EducationEntry = {
 
 export const education: EducationEntry[] = [
   {
-    period: "2027.09 - Present",
-    degree: "Jointly Trained Ph.D. Student",
+    period: "Expected 2027.09",
+    degree: "Incoming Jointly Trained Ph.D. Student",
     institution: "Shanghai Innovation Institute",
     institutionUrl: "https://www.sii.edu.cn/",
   },
   {
-    period: "2027.09 - Present",
-    degree: "Ph.D. Student",
+    period: "Expected 2027.09",
+    degree: "Incoming Ph.D. Student",
     institution: "Shanghai Jiao Tong University",
     institutionUrl: "https://www.sjtu.edu.cn/",
   },
   {
-    period: "2023.09 - 2027.06",
+    period: "2023.09 - 2027.06 (expected)",
     degree: "B.Eng., Software Engineering",
     institution: "Tongji University",
     institutionUrl: "https://www.tongji.edu.cn/",
@@ -48,7 +48,7 @@ export const honors: Honor[] = [
   {
     title: "National Scholarship",
     org: "Ministry of Education of the People's Republic of China",
-    year: "2025",
+    year: "2025, 2026",
     kind: "scholarship",
   },
   {
