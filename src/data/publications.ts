@@ -32,7 +32,7 @@ export const publicationGroups: PublicationGroup[] = [
           "Lin Zhang",
         ],
         venue:
-          "Advances in Neural Information Processing Systems (NeurIPS), 2026 · arXiv coming soon",
+          "Annual Conference on Neural Information Processing Systems (NeurIPS), 2026 · arXiv coming soon",
         href: "https://neurips.cc/virtual/2026/poster/148558",
         links: [
           {
